@@ -9,11 +9,11 @@ import (
     log "github.com/apache/pulsar/pulsar-function-go/logutil" 
 )
  
-func echoFunc(ctx context.Context, in []byte) {
+func echoFunc(ctx context.Context, in []byte) []byte {
     if fc, ok := pf.FromContext(ctx); ok {
         log.Infof("This input has a length of: %d", len(in))
  
-        fmt.Printf("Fully-qualified function name is:%s\%s\%s\n",
+        fmt.Printf("Fully-qualified function name is:%s\\%s\\%s\n",
           fc.GetFuncTenant(), fc.GetFuncNamespace(), fc. GetFuncName())
     }
     return in 
